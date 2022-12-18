@@ -156,6 +156,7 @@
     left: 0;
     width: 186px;
     padding: 8px;
+    z-index: 1;
     display: none;
 
     background-color: #fff;
@@ -527,6 +528,8 @@
     position: absolute;
     top: calc(100% + 2px);
     right: 0;
+    z-index: 1;
+
     width: 400px;
     background-color: var(--white-color);
     border-radius: 2px;
@@ -592,6 +595,8 @@
 
 .header__cart-list-products {
     list-style: none;
+    max-height: 56vh;
+    overflow-y: auto;
 }
 
 .header__cart-item {
@@ -624,6 +629,15 @@
 .header__cart-item-name {
     font-size: 1.4rem;
     font-weight: 400;
+    flex: 1;
+    padding-right: 16px;
+    text-align: left;
+    line-height: 2rem;
+    max-height: 4rem;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
 }
 
 .header__cart-item-price {
@@ -710,6 +724,8 @@
     position: absolute;
     top: calc(100% + 13px);
     right: 0;
+    z-index: 1;
+
     list-style: none;
     width: 120px;
     box-shadow: 0 0 2px #ccc;
@@ -790,6 +806,8 @@
     position: absolute;
     top: calc(100% + 2px);
     left: 0;
+    z-index: 1;
+
     width: calc(100% - 16px);
     background-color: var(--white-color);
     border-radius: 2px;
@@ -844,10 +862,12 @@
 }
 
 .category__heading {
-    font-size: 1.7rem;
+    font-size: 1.5rem;
+    font-weight: 500;
     color: var(--text-color);
     padding: 12px 16px;
     border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    text-transform: uppercase;
 }
 
 .category__heading-icon {
@@ -859,6 +879,24 @@
     list-style: none;
     margin-left: 9px;
 }
+
+.category-item {
+    position: relative;
+}
+
+.category-item:first-child::before {
+    display: none;
+}
+
+.category-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 16px;
+    right: 16px;
+    border-top: 1px solid #e1e1e1;
+}
+
 
 .category-item--active .category-item__link {
     color: var(--primary-color);
@@ -880,7 +918,7 @@
     font-size: 1.4rem;
     text-decoration: none;
     color: var(--text-color);
-    padding: 4px 16px;
+    padding: 6px 16px;
     display: block;
     transition: right linear 0.1s;
 }
@@ -965,6 +1003,10 @@
 }
 
 /* Product item */
+.home-product {
+    margin-bottom: 16px;
+}
+
 .home-product-item {
     display: block;
     text-decoration: none;
@@ -985,7 +1027,7 @@
     padding-top: 100%;
     background-repeat: no-repeat;
     background-size: contain;
-    background-position: center;
+    background-position: top center;
 }
 
 .home-product-item__name {
@@ -1141,3 +1183,6 @@
     font-size: 1.2rem;
 }
 
+.home-product__pagination {
+    margin: 48px 0 32px 0;
+}
