@@ -1,3 +1,8 @@
+
+.app {
+    overflow: hidden;
+}
+
 /* Header */
 .header {
     height: var(--header-height);
